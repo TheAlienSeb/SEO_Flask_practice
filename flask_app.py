@@ -32,7 +32,8 @@ with app.app_context():
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', subtitle='Home Page', text='This is the home page')
+    users = User.query.all()
+    return render_template('home.html', subtitle='Home Page', text='This is the home page', users=users)
 
 
 @app.route("/about")
